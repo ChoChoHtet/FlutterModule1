@@ -19,17 +19,21 @@ class RegisterPage extends StatelessWidget {
           elevation: 0,
           backgroundColor: Colors.transparent,
           centerTitle: true,
-          title: Image.asset("assets/ic_toolbar.png"),
-          leading: Text(
-            "Back",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 16,
-              color: Colors.black
+          title: Image.asset("assets/prime_video.png",width: 70,),
+          leading: Center(
+            child: Text(
+              "Back",
+              style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.blue
+              ),
             ),
           ),
           actions: [
-            Icon(Icons.refresh)
+            Container(
+              padding: EdgeInsets.fromLTRB(16, 0, 16, 0),
+              child: Icon(Icons.refresh),
+            )
           ],
         ),
         body: SingleChildScrollView(
