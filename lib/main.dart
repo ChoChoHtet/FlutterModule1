@@ -3,102 +3,149 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(
     MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: RegisterPage(),
     ),
   );
 }
 
-class HomePage extends StatelessWidget {
+class RegisterPage extends StatelessWidget {
+  bool isChecked = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          "Login",
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
         backgroundColor: Color.fromRGBO(0, 0, 0, 1),
-        actions: [
-          IconButton(
-              icon: Icon(Icons.add),
-              onPressed: () {
-                print("Add button tapped");
-              }),
-          IconButton(
-              icon: Icon(Icons.add_alarm),
-              onPressed: () {
-                print("Alarm button tapped");
-              }),
-        ],
-        leading: Icon(
-          Icons.arrow_back_ios_outlined,
-          size: 30,
-        ),
-      ),
-      body: Container(
-        color: Color.fromRGBO(19, 19, 19, 1.0),
-        padding: EdgeInsets.symmetric(horizontal: 30),
-        child: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                "Welcome! ",
-                style: TextStyle(
-                    decoration: TextDecoration.underline, color: Colors.white),
-              ),
-              TextField(
-                style: TextStyle(color: Colors.white),
-                decoration: InputDecoration(
-                  fillColor: Colors.white,
-                  hintText: "Username",
-                  hintStyle: TextStyle(color: Colors.white),
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              TextField(
-                style: TextStyle(color: Colors.white),
-                decoration: InputDecoration(
-                  fillColor: Colors.white,
-                  hintText: "Password",
-                  hintStyle: TextStyle(color: Colors.white),
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              FlatButton(
-                onPressed: () {
-                  print("Sign in button tapped");
-                },
-                child: Text(
-                  "Sign in",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20),
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              FlatButton(
-                onPressed: () {
-                  print("Recover Password tapped");
-                },
-                child: Text(
-                  "Recover Password",
-                  style: TextStyle(color: Colors.white, fontSize: 16),
-                ),
-              ),
-            ],
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          centerTitle: true,
+          title: Image.asset("assets/ic_toolbar.png"),
+          leading: Text(
+            "Back",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.black
+            ),
           ),
+          actions: [
+            Icon(Icons.refresh)
+          ],
         ),
-      ),
-    );
+        body: SingleChildScrollView(
+          child: Container(
+            padding: EdgeInsets.all(16),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Create account",
+                  style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.w700,
+                      color: Colors.white),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                TextFormField(
+                  decoration: InputDecoration(
+                      fillColor: Colors.white,
+                      filled: true,
+                      border: InputBorder.none,
+                      labelStyle: TextStyle(color: Colors.blueGrey),
+                      labelText: "Name"),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                TextFormField(
+                  decoration: InputDecoration(
+                      fillColor: Colors.white,
+                      filled: true,
+                      border: InputBorder.none,
+                      labelStyle: TextStyle(color: Colors.blueGrey),
+                      labelText: "Your email address"),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                TextFormField(
+                  obscureText: true,
+                  decoration: InputDecoration(
+                      fillColor: Colors.white,
+                      filled: true,
+                      border: InputBorder.none,
+                      labelStyle: TextStyle(color: Colors.blueGrey),
+                      labelText: "Create a password"),
+                ),
+                SizedBox(
+                  height: 16,
+                ),
+                Row(
+                  children: [
+                    Theme(
+                        data: ThemeData(
+                          iconTheme: IconThemeData(color: Colors.blue),
+                        ),
+                        child: Icon(Icons.info)),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text(
+                      "Password must be at least 6 characters",
+                      style: TextStyle(color: Colors.white,fontStyle: FontStyle.italic),
+                    )
+                  ],
+                ),
+                SizedBox(
+                  height: 16,
+                ),
+                SizedBox(
+                  width: double.infinity,
+                  height: 48,
+                  child: RaisedButton(
+                    onPressed: () {
+                      print("Create your Amazon Account was tapped");
+                    },
+                    child: Text(
+                      "Create your Amazon Account",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    color: Colors.blue,
+                  ),
+                ),
+                SizedBox(
+                  width: double.infinity,
+                  height: 48,
+                  child: FlatButton(
+                    onPressed: () {
+                      print("Already have an account was tapped");
+                    },
+                    child: Text(
+                      "Already have an account ?",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: double.infinity,
+                  height: 48,
+                  child: RaisedButton(
+                    onPressed: () {
+                      print("Sign-In now was tapped");
+                    },
+                    child: Text(
+                      "Sign-In now ",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    color: Colors.blueGrey,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ));
   }
 }
